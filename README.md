@@ -42,5 +42,8 @@ Also see:
 <div>
 <p>Filter</p>
 <img src="src/filter.png"/>
+<br>
 <a href="https://codepen.io/wolfhaltz/pen/MWyQGzb">CodePen</a>
+<br>
+<a href="some_studies/filter.html">GitHub File</a>
 </div>
