@@ -38,7 +38,7 @@ Also see:
     <br>
     <a href="some_studies/change_text.html">GitHub File</a>
 </div>
-
+<br><br>
 <div>
 <p>Filter</p>
 <img src="src/filter.png"/>
