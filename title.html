@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Little Vue Store!</title>
+
+        <!-- vue cdn -->
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>{{ title }}</p>
+            <button v-on:click="title = 'New Title'">Change Title</button>
+
+            <p>{{ titleToChangeWithMethod }}</p>
+            <button v-on:click="changeTitle()">Change title using a method</button>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    title: 'Welcome to Little Vue Store!',
+                    titleToChangeWithMethod: "I'm a title that will be changed using a method :)"
+                },
+                methods: {
+                    changeTitle(){
+                        this.titleToChangeWithMethod = 'Changed title using a method'
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
