@@ -8,14 +8,14 @@
     </head>
     <body>
         <div id="app">
-            <p>{{ message }}</p>
-            <button v-on:click="message = 'New Title'">Change Title</button>
+            <p>{{ title }}</p>
+            <button v-on:click="title = 'New Title'">Change Title</button>
         </div>
         <script>
             new Vue({
                 el: '#app',
                 data: {
-                    message: 'Welcome to Little Vue Store!'
+                    title: 'Welcome to Little Vue Store!'
                 }
             });
         </script>
