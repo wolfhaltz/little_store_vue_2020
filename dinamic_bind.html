@@ -12,14 +12,18 @@
 <body>
     <div id="app">
         <div>
-            
+            <input type="text" v-on:input="cssClass = $event.target.value">
+            <p v-bind:class="cssClass">Class:
+                <br>
+                {{ cssClass }}</p>
+            <small class="FF99CB">You can type red, blue or black :)</small>
         </div>
     </div>
     <script>
         new Vue({
             el: "#app",
             data: {
-                //
+                cssClass: ''
             }
         });
     </script>
