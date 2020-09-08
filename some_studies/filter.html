@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Filter</title>
+
+    <!-- vue cdn -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/564x/ce/76/5a/ce765ab210da784a2ee8b7e244ea3ff4.jpg');
+            color: #3d9996;
+            font-weight: 900;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        div#app {
+            background-color: #ACEDED;
+            border-radius: 12px;
+            padding: 20px;
+            width: 50%;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 5%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <p>Using computed: <br><br>{{ directlyUpperCaseFilter }}</p>
+            <br><br>
+            <p>Using filter uppercase: <br><br>{{ text | uppercase }}</p>
+            <br><br>
+            <p>Using filter lowercase: <br><br>{{ text | lowercase }}</p>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                text: 'Some text blablabla'
+            },
+            computed: {
+                directlyUpperCaseFilter: function () {
+                    return this.text.toUpperCase();
+                }
+            },
+            filters: {
+                uppercase: function(value){
+                    return value.toUpperCase();
+                },
+                lowercase: function(value){
+                    return value.toLowerCase();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

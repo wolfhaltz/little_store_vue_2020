@@ -38,3 +38,9 @@ Also see:
     <br>
     <a href="some_studies/change_text.html">GitHub File</a>
 </div>
+
+<div>
+<p>Filter</p>
+<img src="src/filter.png"/>
+<a href="https://codepen.io/wolfhaltz/pen/MWyQGzb">CodePen</a>
+</div>
