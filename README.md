@@ -47,3 +47,13 @@ Also see:
 <br>
 <a href="some_studies/filter.html">GitHub File</a>
 </div>
+
+<br><br>
+<div>
+<p>Component</p>
+<img src="src/component.png"/>
+<br>
+<a href="https://codepen.io/wolfhaltz/pen/mdPXLZY">CodePen</a>
+<br>
+<a href="some_studies/component.html">GitHub File</a>
+</div>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Component with Vue</title>
+
+    <!-- vue cdn -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style>
+        body {
+            background-image: url('../src/red_roses.jpg');
+            color: white;
+            font-weight: 900;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        hr {
+            border: 1px solid #FFC6E7;
+        }
+
+        div#app div {
+            background-color: #FF99CB;
+            border-radius: 12px;
+            padding: 20px;
+            width: 50%;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 5%;
+        }
+
+        div#app div div div {
+            background-color: white;
+            border: 5px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h1>Component</h1>
+            <app-user></app-user>
+        </div>
+    </div>
+    <script>
+        Vue.component('app-user', {
+            data: function () {
+                return {
+                    users: [
+                        { name: 'Ana', age: 30 },
+                        { name: 'Max', age: 12 },
+                        { name: 'Julia', age: 35 },
+                        { name: 'Stephen', age: 19 },
+                    ]
+                }
+            },
+            template: '<div><div v-for="user in users"><p>Name: {{ user.name }}<br> Age: {{ user.age }}</p></div></div>'
+        });
+
+        new Vue({
+            el: "#app",
+        });
+    </script>
+</body>
+
+</html>
