@@ -6,7 +6,35 @@
 
     <!-- vue cdn -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/564x/c6/6a/a3/c66aa37cf0426e51f61f9bf4d9118ed6.jpg');
+            color: white;
+            font-weight: 900;
+            font-size: 20px;
+            text-align: center;
+        }
 
+        div#app div {
+            background-color: #49D5D0;
+            border-radius: 12px;
+            padding: 20px;
+            width: 50%;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 5%;
+        }
+
+        button {
+            padding: 8px 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #ACEDED;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,12 +52,12 @@
                 clicks: 0,
             },
             methods: {
-                increment(){
+                increment() {
                     this.clicks++;
                 }
             },
             computed: {
-                counter(){
+                counter() {
                     return this.clicks * 2;
                 }
             }
