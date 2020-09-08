@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Little Vue Store!</title>
+
+        <!-- vue cdn -->
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>{{ message }}</p>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    message: 'Welcome to Little Vue Store!'
+                }
+            });
+        </script>
+    </body>
+</html>
