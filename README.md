@@ -25,7 +25,7 @@ Also see:
 <div>
     <p>Change Text:</p>
     <img src="src/change_text.gif"/>
-    <br>
+    <br><br>
     <a href="https://codepen.io/wolfhaltz/pen/oNxEpMy">CodePen only with v-on:click</a>
     <br>
     <a href="https://codepen.io/wolfhaltz/pen/ZEWrrOa">CodePen using a method on v-on:click</a>
