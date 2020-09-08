@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Change text with or without method - VueJS</title>
+
+    <!-- vue cdn -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/564x/a3/33/ba/a333baa3cfe5c04a7566caa0a071ab25.jpg');
+            color: white;
+            font-weight: 900;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        div#app {
+            background-color: #49D5D0;
+            border-radius: 12px;
+            padding: 20px;
+            width: 50%;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 5%;
+        }
+
+        button {
+            padding: 8px 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #D5F3FE;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ text }}</p>
+        <button v-on:click="text = 'New Text'">Change Text</button>
+
+        <p>{{ textToChangeWithMethod }}</p>
+        <button v-on:click="changeText()">Change text using a method</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                text: 'Text that will be changed directly on v-on:click',
+                textToChangeWithMethod: "Text that will be changed using a method :)"
+            },
+            methods: {
+                changeText() {
+                    this.textToChangeWithMethod = 'Changed text using a method'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
