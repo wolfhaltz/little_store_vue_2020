@@ -4,25 +4,25 @@ It's a cute little store made with love and Vue haha
 
 Also see:
 
-<div style="padding-top: 5vh; padding-bottom: 5vh;">
+<div>
     <p>Dinamic bind:</p>
     <img src="src/dinamic_bind.gif"/>
     <a href="https://codepen.io/wolfhaltz/pen/jOqZZKG">CodePen</a>
 </div>
 
-<div style="padding-top: 5vh; padding-bottom: 5vh;">
+<div>
     <p>Counter:</p>
     <img src="src/counter.gif"/>
     <a href="https://codepen.io/wolfhaltz/pen/qBZxoXb">CodePen</a>
 </div>
 
-<div style="padding-top: 5vh; padding-bottom: 5vh;">
+<div>
     <p>Conditional Show/Hide with boolean:</p>
     <img src="src/conditional_show_hide.gif"/>
     <a href="https://codepen.io/wolfhaltz/pen/dyMdmqv">CodePen</a>
 </div>
 
-<div style="padding-top: 5vh; padding-bottom: 5vh;">
+<div>
     <p>Change Text:</p>
     <img src="src/change_text.gif"/>
     <br><br>
