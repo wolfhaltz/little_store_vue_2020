@@ -11,3 +11,7 @@ Dinamic bind:
 Counter:
 <img style="width: 400px;" src="src/counter.gif"/>
 <a href="https://codepen.io/wolfhaltz/pen/qBZxoXb">CodePen</a>
+
+Conditional Show/Hide with boolean:
+<img style="width: 400px;" src="src/contidional_show_hide.gif"/>
+<a href="https://codepen.io/wolfhaltz/pen/dyMdmqv">CodePen</a>

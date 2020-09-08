@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to Little Vue Store!</title>
+
+    <!-- vue cdn -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/564x/ec/79/ab/ec79aba2eb5252e6775d2968dcd64cd0.jpg');
+            color: white;
+            font-weight: 900;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        hr {
+            border: 1px solid #FFC6E7;
+        }
+
+        div#app div {
+            background-color: #FF99CB;
+            border-radius: 12px;
+            padding: 20px;
+            width: 50%;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 5%;
+        }
+
+        button {
+            padding: 8px 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #ACEDED;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <div>
+            <p v-if="show">Am I Visible?</p>
+            <p v-else>Not anymore :)</p>
+            <hr>
+            <button v-on:click="show = !show">Show or Hide</button>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                show: true,
+            }
+        });
+    </script>
+</body>
+
+</html>
