@@ -6,7 +6,9 @@
 
     <!-- vue cdn -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <!-- my css -->
+    <link rel="stylesheet" href="src/css/index.css">
     <style>
         body {
             background-image: url('../src/bg/ocean.jpg');
@@ -25,7 +27,6 @@
             margin-right: 20%;
             margin-top: 5%;
         }
-
     </style>
 </head>
 
@@ -52,10 +53,10 @@
                 }
             },
             filters: {
-                uppercase: function(value){
+                uppercase: function (value) {
                     return value.toUpperCase();
                 },
-                lowercase: function(value){
+                lowercase: function (value) {
                     return value.toLowerCase();
                 }
             }
