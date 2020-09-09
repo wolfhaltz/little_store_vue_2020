@@ -3,3 +3,13 @@
 ------------------------*/
 .bg-49D5D0{ background-color: #49D5D0; }
 .bg-ACEDED{ background-color: #ACEDED; }
+
+/*-----------------------
+        BGs
+------------------------*/
+.bg-kiwi { background-image: url('../bg/kiwi.jpg'); }
+.bg-lightblue-flowers { background-image: url('../bg/lightblue_flowers.jpg'); }
+.bg-ocean { background-image: url('../bg/ocean.jpg'); }
+.bg-red-roses { background-image: url('../bg/red_roses.jpg'); }
+.bg-sunflower { background-image: url('../bg/sunflower.jpg'); }
+.bg-violet-flowers { background-image: url('../bg/violet_flowers.jpg'); }
