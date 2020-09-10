@@ -84,7 +84,15 @@
             <!-- products -->
             <div class="row">
                 <div class="col">
-                    <button @click.stop.prevent="getProducts()" class="btn btn-primary">Produtos?</button>
+                    <div class="card">
+                        <button @click.stop.prevent="getUsers()" class="btn btn-primary">Veja quem comprou conosco:</button>
+                        <hr/>
+                        <ul>
+                            <li v-for="users in users">
+                                {{ users.name }}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -175,9 +183,14 @@
         // mixins
         var mixin = {
             methods: {
-                getProducts() {
+                getUsers() {
                     // rotina de programação para localizar os produtos
-                    console.log('hey');
+                    var url = 'https://jsonplaceholder.typicode.com/users';
+                    this.$http.get(url).then(function (response) {
+                        this.users = response.body;
+                    }, function(error){
+                        console.log(error);
+                    });
                 }
             }
         }
@@ -269,7 +282,7 @@
             el: "#app",
             mixins: [mixin],
             data: {
-                //
+                users: [],
             },
             methods: {
                 //
