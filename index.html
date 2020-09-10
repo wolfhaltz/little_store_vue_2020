@@ -34,44 +34,58 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product.html">Product</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Some cool studies
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="some_studies/change_text.html">Change Text</a>
-                            <a class="dropdown-item" href="some_studies/component.html">Component</a>
-                            <a class="dropdown-item" href="some_studies/conditional_show_hide.html">Conditional
-                                Show/Hide</a>
-                            <a class="dropdown-item" href="some_studies/counter.html">Counter</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="some_studies/dinamic_bind.html">Dinamic Bind</a>
-                            <a class="dropdown-item" href="some_studies/filter.html">Filter</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Who am I?</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">Thank you! &#128526;</li>
-                </ul>
+                <navbar-left-list></navbar-left-list>
+                <navbar-right-list></navbar-right-list>
             </div>
         </nav>
     </template>
 
+    <template id="navbar-left-list">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="product.html">Product</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Some cool studies
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="some_studies/change_text.html">Change Text</a>
+                    <a class="dropdown-item" href="some_studies/component.html">Component</a>
+                    <a class="dropdown-item" href="some_studies/conditional_show_hide.html">Conditional
+                        Show/Hide</a>
+                    <a class="dropdown-item" href="some_studies/counter.html">Counter</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="some_studies/dinamic_bind.html">Dinamic Bind</a>
+                    <a class="dropdown-item" href="some_studies/filter.html">Filter</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">Who am I?</a>
+            </li>
+        </ul>
+    </template>
+
+    <template id="navbar-right-list">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">Thank you! &#128526;</li>
+        </ul>
+    </template>
+
     <script>
-        // Instanciando o componente do Vue:
+        // Instanciando os componentes do Vue:
         Vue.component('navbar', {
             template: '#navbar'
+        });
+        Vue.component('navbar-left-list', {
+            template: '#navbar-left-list'
+        });
+        Vue.component('navbar-right-list', {
+            template: '#navbar-right-list'
         });
 
         // sempre instancie seus componentes antes da instância do Vue ;)
