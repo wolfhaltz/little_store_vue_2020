@@ -34,7 +34,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <navbar-left-list :items="navbarLeftListItems"></navbar-left-list>
+                <navbar-left-list :items="navbarLeftListItems" @emit-click="getLink"></navbar-left-list>
                 <navbar-right-list></navbar-right-list>
             </div>
         </nav>
@@ -46,8 +46,8 @@
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
 
-            <li class="nav-item" v-for="item in items">
-                <a class="nav-link" href="{{ item.href }}">{{ item.label }}</a>
+            <li v-for="(item, index) in items" class="nav-item">
+                <a @click.stop.prevent="emitClick(index)" class="nav-link" href="#">{{ item.label }}</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -82,15 +82,30 @@
             data() {
                 return {
                     navbarLeftListItems: [
-                        { label: 'Product', href: 'product.html' },
-                        { label: 'Who am I?', href: 'about.html' }
+                        { label: 'Product'},
+                        { label: 'Who am I?' }
                     ]
+                }
+            },
+            methods: {
+                getLink(index){
+                    alert(this.navbarLeftListItems[index].label)
                 }
             }
         });
         Vue.component('navbar-left-list', {
             template: '#navbar-left-list',
-            props: ['items']
+            props: {
+                items: {
+                    type: Array,
+                    required: true
+                }
+            },
+            methods: {
+                emitClick(index) {
+                    this.$emit('emit-click', index);
+                }
+            }
         });
         Vue.component('navbar-right-list', {
             template: '#navbar-right-list'
