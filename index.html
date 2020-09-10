@@ -27,6 +27,8 @@
             <input-form></input-form>
             <hr />
             <my-list></my-list>
+            <hr/>
+            <card></card>
         </div>
     </div>
 
@@ -99,6 +101,18 @@
         </ul>
     </template>
 
+    <!-- cards -->
+    <template id="card">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+    </template>
+
     <script>
         // Instanciando os componentes do Vue:
         Vue.component('navbar', {
@@ -168,6 +182,14 @@
             }
         });
 
+        Vue.component('card', {
+            template: '#card',
+            data(){
+                return {
+                    title: '',
+                }
+            }
+        })
         // event bus são novas instâncias do Vue
         // você pode chamar assim:
         //          var eventBus = new Vue();
