@@ -144,7 +144,7 @@
             },
             methods: {
                 submit() {
-                    eventBus.$emit('submit', this.title);
+                    this.$eventHub.$emit('submit', this.title);
                 }
             }
         });
@@ -152,7 +152,7 @@
             template: '#list',
             created() {
                 var vm = this;
-                eventBus.$on('submit', function (title) {
+                this.$eventHub.$on('submit', function (title) {
                     // adding the item at list:
                     if(title){
                         vm.list.push({ title: title });
@@ -169,7 +169,10 @@
         });
 
         // event bus são novas instâncias do Vue
-        var eventBus = new Vue();
+        // você pode chamar assim:
+        //          var eventBus = new Vue();
+        // ou assim:
+        Vue.prototype.$eventHub = new Vue();
 
         // sempre instancie seus componentes antes da instância do Vue ;)
 
