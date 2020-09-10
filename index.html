@@ -87,6 +87,7 @@
                     <div class="card">
                         <button @click.stop.prevent="getUsers()" class="btn btn-primary">Veja quem comprou conosco:</button>
                         <hr/>
+                        <div v-if="loader.users">Carregando usuários</div>
                         <div v-if="response.status == 'error'" class="alert alert-danger">{{ response.msg }}</div>
                         <ul>
                             <li v-for="users in users">
@@ -185,6 +186,7 @@
         var mixin = {
             methods: {
                 getUsers() {
+                    this.loader.users = true;
                     // rotina de programação para localizar os produtos
                     var url = 'https://jsonplaceholder.typicode.com/users';
                     this.$http.get(url).then(function (response) {
@@ -192,6 +194,9 @@
                     }, function(error){
                         this.response.status = "error";
                         console.log(error);
+                    })
+                    .finally(function (){
+                        this.loader.users = false;
                     });
                 }
             }
@@ -285,6 +290,9 @@
             mixins: [mixin],
             data: {
                 users: [],
+                loader: {
+                    users: false,
+                },
                 response: {
                     status: "",
                     msg: "Ooops! Houve um erro, tente novamente mais tarde."
