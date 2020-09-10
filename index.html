@@ -62,9 +62,16 @@
             </div>
         </nav>
     </div>
-    
+
     <script>
-        new Vue({
+        // Instanciando o componente do Vue:
+        Vue.component('menu-bar', {
+            template: "<ul><li>Item 01</li><li>Item 02</li></ul>"
+        });
+
+        // sempre instancie seus componentes antes da instância do Vue ;)
+
+        var app = new Vue({
             el: "#app",
             data: {
                 //
