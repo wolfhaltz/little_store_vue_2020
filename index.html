@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <!-- products -->
+            <!-- users -->
             <div class="row">
                 <div class="col">
                     <div class="card">
@@ -94,6 +94,18 @@
                                 {{ users.name }}
                             </li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- cats -->
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <button @click.stop.prevent="getCats()" class="btn btn-primary">Clique para ver um gato</button>
+                        <div v-for="cat in cats">
+                            <img :src="cat.url" alt="" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -198,6 +210,16 @@
                     .finally(function (){
                         this.loader.users = false;
                     });
+                },
+                getCats(){
+                    this.loader.cats = true;
+
+                    var url = 'https://api.thecatapi.com/v1/images/search';
+                    var vm = this;
+                    axios.get(url).then(function(response){
+                        vm.cats = response.data;
+                        vm.loader.cats = false;
+                    });
                 }
             }
         }
@@ -290,8 +312,10 @@
             mixins: [mixin],
             data: {
                 users: [],
+                cats: [],
                 loader: {
                     users: false,
+                    cats: false,
                 },
                 response: {
                     status: "",
