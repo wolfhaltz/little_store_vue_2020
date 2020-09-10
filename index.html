@@ -42,7 +42,8 @@
                             alt="Card image cap">
                         <h5 slot="titleCard" class="card-title">Clothes</h5>
                         <template slot="textCard">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
                                 the
                                 card's content.
                             </p>
@@ -56,7 +57,8 @@
                         <img slot="image" class="card-img-top" src="http://via.placeholder.com/350x150"
                             alt="Card image cap">
                         <h5 slot="titleCard" class="card-title">Books</h5>
-                        <p slot="textCard" class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p slot="textCard" class="card-text">Some quick example text to build on the card title and make
+                            up the bulk of
                             the
                             card's content.
                         </p>
@@ -69,12 +71,20 @@
                         <img slot="image" class="card-img-top" src="http://via.placeholder.com/350x150"
                             alt="Card image cap">
                         <h5 slot="titleCard" class="card-title">Food</h5>
-                        <p slot="textCard" class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p slot="textCard" class="card-text">Some quick example text to build on the card title and make
+                            up the bulk of
                             the
                             card's content.
                         </p>
                         <a slot="actionCard" href="#" class="btn btn-primary">Go somewhere</a>
                     </card>
+                </div>
+            </div>
+
+            <!-- products -->
+            <div class="row">
+                <div class="col">
+                    <button @click.stop.prevent="getProducts()" class="btn btn-primary">Produtos?</button>
                 </div>
             </div>
         </div>
@@ -162,6 +172,15 @@
     </template>
 
     <script>
+        // mixins
+        var mixin = {
+            methods: {
+                getProducts() {
+                    // rotina de programação para localizar os produtos
+                    console.log('hey');
+                }
+            }
+        }
         // Instanciando os componentes do Vue:
         Vue.component('navbar', {
             template: '#navbar',
@@ -248,7 +267,11 @@
 
         var app = new Vue({
             el: "#app",
+            mixins: [mixin],
             data: {
+                //
+            },
+            methods: {
                 //
             }
         });
