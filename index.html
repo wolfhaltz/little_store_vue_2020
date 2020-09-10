@@ -186,7 +186,7 @@
             methods: {
                 getUsers() {
                     // rotina de programação para localizar os produtos
-                    var url = 'https://jsonplaceholder.typicode.com/userss';
+                    var url = 'https://jsonplaceholder.typicode.com/users';
                     this.$http.get(url).then(function (response) {
                         this.users = response.body;
                     }, function(error){
