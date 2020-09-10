@@ -95,7 +95,7 @@
     </template>
     <template id="list">
         <ul class="list-group">
-            <li v-for="item in list" class="list-group-item">{{ item.titulo }}</li>
+            <li v-for="item in list" class="list-group-item">{{ item.title }}</li>
         </ul>
     </template>
 
@@ -151,14 +151,18 @@
         Vue.component('my-list', {
             template: '#list',
             created() {
-                eventBus.$on('submit', function (titulo) {
-                    console.log(titulo);
+                var vm = this;
+                eventBus.$on('submit', function (title) {
+                    // adding the item at list:
+                    if(title){
+                        vm.list.push({ title: title });
+                    }
                 });
             },
             data() {
                 return {
                     list: [
-                        { titulo: 'À espera de um milagre' },
+                        { title: 'À espera de um milagre' },
                     ]
                 }
             }
