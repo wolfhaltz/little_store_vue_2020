@@ -25,7 +25,7 @@
 
         <div class="container">
             <input-form></input-form>
-            <hr/>
+            <hr />
             <my-list></my-list>
         </div>
     </div>
@@ -95,10 +95,7 @@
     </template>
     <template id="list">
         <ul class="list-group">
-            <li class="list-group-item">1</li>
-            <li class="list-group-item">2</li>
-            <li class="list-group-item">3</li>
-            <li class="list-group-item">4</li>
+            <li v-for="item in list" class="list-group-item">{{ item.titulo }}</li>
         </ul>
     </template>
 
@@ -109,14 +106,14 @@
             data() {
                 return {
                     navbarLeftListItems: [
-                        { label: 'Product', href: 'product.html'},
+                        { label: 'Product', href: 'product.html' },
                         { label: 'Who am I?', href: 'about.html' }
                     ]
                 }
             },
             methods: {
-                getLink(index){
-                    window.location.href =  this.navbarLeftListItems[index].href;
+                getLink(index) {
+                    window.location.href = this.navbarLeftListItems[index].href;
                 }
             }
         });
@@ -154,15 +151,22 @@
         Vue.component('my-list', {
             template: '#list',
             created() {
-                eventBus.$on('submit', function(titulo) {
+                eventBus.$on('submit', function (titulo) {
                     console.log(titulo);
                 });
+            },
+            data() {
+                return {
+                    list: [
+                        { titulo: 'À espera de um milagre' },
+                    ]
+                }
             }
         });
 
         // event bus são novas instâncias do Vue
         var eventBus = new Vue();
-        
+
         // sempre instancie seus componentes antes da instância do Vue ;)
 
         var app = new Vue({
