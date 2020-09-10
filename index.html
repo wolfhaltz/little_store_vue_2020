@@ -23,18 +23,58 @@
         <!-- navbar -->
         <navbar></navbar>
 
+        <!-- body -->
         <div class="container">
-            <input-form></input-form>
-            <hr />
-            <my-list></my-list>
-            <hr />
-            <card>
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </card>
+            <div class="row">
+                <div class="col">
+                    <input-form></input-form>
+                </div>
+                <div class="col">
+                    <my-list></my-list>
+                </div>
+            </div>
+
+            <!-- 3 cards: clothes, books & food -->
+            <div class="row">
+                <div class="col">
+                    <card>
+                        <img slot="image" class="card-img-top" src="http://via.placeholder.com/350x150"
+                            alt="Card image cap">
+                        <h5 slot="titleCard" class="card-title">Clothes</h5>
+                        <p slot="textCard" class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.
+                        </p>
+                        <a slot="actionCard" href="#" class="btn btn-primary">Go somewhere</a>
+                    </card>
+                </div>
+
+                <div class="col">
+                    <card>
+                        <img slot="image" class="card-img-top" src="http://via.placeholder.com/350x150"
+                            alt="Card image cap">
+                        <h5 slot="titleCard" class="card-title">Books</h5>
+                        <p slot="textCard" class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.
+                        </p>
+                        <a slot="actionCard" href="#" class="btn btn-primary">Go somewhere</a>
+                    </card>
+                </div>
+
+                <div class="col">
+                    <card>
+                        <img slot="image" class="card-img-top" src="http://via.placeholder.com/350x150"
+                            alt="Card image cap">
+                        <h5 slot="titleCard" class="card-title">Food</h5>
+                        <p slot="textCard" class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.
+                        </p>
+                        <a slot="actionCard" href="#" class="btn btn-primary">Go somewhere</a>
+                    </card>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -110,9 +150,11 @@
     <!-- cards -->
     <template id="card">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+            <slot name="image"></slot>
             <div class="card-body">
-                <slot></slot>
+                <slot name="titleCard"></slot>
+                <slot name="textCard"></slot>
+                <slot name="actionCard"></slot>
             </div>
         </div>
     </template>
