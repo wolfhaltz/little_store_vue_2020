@@ -26,7 +26,7 @@
         <div class="container">
             <input-form></input-form>
             <hr/>
-            <list></list>
+            <my-list></my-list>
         </div>
     </div>
 
@@ -82,13 +82,13 @@
     </template>
 
     <!-- produtos -->
-    <template id="input-form">
+    <template id="form">
         <div class="card">
             <div class="card-block">
                 <div class="form-group">
                     <label for="">Título</label>
                     <input type="text" class="form-control" />
-                    <button class="btn btn-primary">Enviar</button>
+                    <button @click.stop.prevent="submit()" class="btn btn-primary">Enviar</button>
                 </div>
             </div>
         </div>
@@ -139,11 +139,30 @@
         });
 
         Vue.component('input-form', {
-            template: '#input-form'
+            template: '#form',
+            data() {
+                return {
+                    title: '',
+                }
+            },
+            methods: {
+                submit() {
+                    eventBus.$emit('submit', this.title);
+                }
+            }
         });
-        Vue.component('list', {
-            template: '#list'
+        Vue.component('my-list', {
+            template: '#list',
+            created() {
+                eventBus.$on('submit', function() {
+                    console.log('oraito');
+                });
+            }
         });
+
+        // event bus são novas instâncias do Vue
+        var eventBus = new Vue();
+        
         // sempre instancie seus componentes antes da instância do Vue ;)
 
         var app = new Vue({
