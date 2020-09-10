@@ -27,8 +27,14 @@
             <input-form></input-form>
             <hr />
             <my-list></my-list>
-            <hr/>
-            <card></card>
+            <hr />
+            <card>
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </card>
         </div>
     </div>
 
@@ -106,11 +112,9 @@
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+                <slot></slot>
             </div>
-          </div>
+        </div>
     </template>
 
     <script>
@@ -168,7 +172,7 @@
                 var vm = this;
                 this.$eventHub.$on('submit', function (title) {
                     // adding the item at list:
-                    if(title){
+                    if (title) {
                         vm.list.push({ title: title });
                     }
                 });
@@ -184,7 +188,7 @@
 
         Vue.component('card', {
             template: '#card',
-            data(){
+            data() {
                 return {
                     title: '',
                 }
