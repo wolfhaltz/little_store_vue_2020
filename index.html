@@ -87,7 +87,7 @@
             <div class="card-block">
                 <div class="form-group">
                     <label for="">Título</label>
-                    <input type="text" class="form-control" />
+                    <input v-model="title" type="text" class="form-control" />
                     <button @click.stop.prevent="submit()" class="btn btn-primary">Enviar</button>
                 </div>
             </div>
@@ -154,8 +154,8 @@
         Vue.component('my-list', {
             template: '#list',
             created() {
-                eventBus.$on('submit', function() {
-                    console.log('oraito');
+                eventBus.$on('submit', function(titulo) {
+                    console.log(titulo);
                 });
             }
         });
