@@ -82,14 +82,15 @@
             data() {
                 return {
                     navbarLeftListItems: [
-                        { label: 'Product'},
-                        { label: 'Who am I?' }
+                        { label: 'Product', href: 'product.html'},
+                        { label: 'Who am I?', href: 'about.html' }
                     ]
                 }
             },
             methods: {
                 getLink(index){
-                    alert(this.navbarLeftListItems[index].label)
+                    // alert(this.navbarLeftListItems[index].label)
+                    window.location.href =  this.navbarLeftListItems[index].href;
                 }
             }
         });
