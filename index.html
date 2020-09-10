@@ -34,7 +34,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <navbar-left-list></navbar-left-list>
+                <navbar-left-list :items="navbarLeftListItems"></navbar-left-list>
                 <navbar-right-list></navbar-right-list>
             </div>
         </nav>
@@ -45,12 +45,14 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="product.html">Product</a>
+
+            <li class="nav-item" v-for="item in items">
+                <a class="nav-link" href="{{ item.href }}">{{ item.label }}</a>
             </li>
+
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
                     Some cool studies
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -64,9 +66,6 @@
                     <a class="dropdown-item" href="some_studies/filter.html">Filter</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="about.html">Who am I?</a>
-            </li>
         </ul>
     </template>
 
@@ -79,10 +78,19 @@
     <script>
         // Instanciando os componentes do Vue:
         Vue.component('navbar', {
-            template: '#navbar'
+            template: '#navbar',
+            data() {
+                return {
+                    navbarLeftListItems: [
+                        { label: 'Product', href: 'product.html' },
+                        { label: 'Who am I?', href: 'about.html' }
+                    ]
+                }
+            }
         });
         Vue.component('navbar-left-list', {
-            template: '#navbar-left-list'
+            template: '#navbar-left-list',
+            props: ['items']
         });
         Vue.component('navbar-right-list', {
             template: '#navbar-right-list'
