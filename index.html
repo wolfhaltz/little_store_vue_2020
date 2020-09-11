@@ -85,8 +85,9 @@
             <div class="row">
                 <div class="col">
                     <div class="card">
-                        <button @click.stop.prevent="getUsers()" class="btn btn-primary">Veja quem comprou conosco:</button>
-                        <hr/>
+                        <button @click.stop.prevent="getUsers()" class="btn btn-primary">Veja quem comprou
+                            conosco:</button>
+                        <hr />
                         <div v-if="loader.users">Carregando usuários</div>
                         <div v-if="response.status == 'error'" class="alert alert-danger">{{ response.msg }}</div>
                         <ul>
@@ -103,7 +104,7 @@
                 <div class="col">
                     <div class="card">
                         <button @click.stop.prevent="getCats()" class="btn btn-primary">Clique para ver um gato</button>
-                        <div v-for="cat in cats">
+                        <div v-for="cat in cats.api">
                             <img :src="cat.url" alt="" />
                         </div>
                     </div>
@@ -114,7 +115,24 @@
             <!-- block -->
             <!-- <input v-model="newsletter.email" :class="{ borderRed: newsletter.email.length < 2 }" /> -->
             <input v-model="newsletter.email" :class="[ newsletter.email.length < 2 ? 'borderRed' : 'borderGreen' ]" />
-            <button onclick="alert('Inscrito em nossa Newsletter!')" :disabled="newsletter.email.length < 2">Inscever-se</button>
+            <button onclick="alert('Inscrito em nossa Newsletter!')"
+                :disabled="newsletter.email.length < 2">Inscever-se</button>
+
+
+            <!-- adicione um gatinho :D -->
+            <div class="card">
+                <div class="row">
+                    <div class="col-6">
+                        <input v-model="cats.newCat" placeholder="Escreva o nome de um gatinho aqui :D" class="input-form w-100" />
+                        <button v-on:click="addKitty" class="btn btn-primary w-100">Adicionar gatinho</button>
+                    </div>
+                    <div class="col-6">
+                        <ul>
+                            <li v-for="cat in cats.list">{{ cat.name }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -210,24 +228,24 @@
                     var url = 'https://jsonplaceholder.typicode.com/users';
                     this.$http.get(url).then(function (response) {
                         this.users = response.body;
-                    }, function(error){
+                    }, function (error) {
                         this.response.status = "error";
                         console.log(error);
                     })
-                    .finally(function (){
-                        this.loader.users = false;
-                    });
+                        .finally(function () {
+                            this.loader.users = false;
+                        });
                 },
-                getCats(){
-                    this.loader.cats = true;
+                getCats() {
+                    this.loader.cats.api = true;
 
                     var url = 'https://api.thecatapi.com/v1/images/search';
                     var vm = this;
-                    axios.get(url).then(function(response){
-                        vm.cats = response.data;
-                        vm.loader.cats = false;
+                    axios.get(url).then(function (response) {
+                        vm.cats.api = response.data;
+                        vm.loader.cats.api = false;
                     });
-                }
+                },
             }
         }
         // Instanciando os componentes do Vue:
@@ -320,7 +338,15 @@
             data: {
                 newsletter: { email: '' },
                 users: [],
-                cats: [],
+                cats: {
+                    api: [],
+                    newCat: '',
+                    list: [
+                        { name: 'Romeo' },
+                        { name: 'Luiza' },
+                        { name: 'Henry' }
+                    ]
+                },
                 loader: {
                     users: false,
                     cats: false,
@@ -328,10 +354,12 @@
                 response: {
                     status: "",
                     msg: "Ooops! Houve um erro, tente novamente mais tarde."
-                }
+                },
             },
             methods: {
-                //
+                addKitty: function () {
+                    return this.cats.list.push({ name: this.cats.newCat })
+                }
             }
         });
     </script>
