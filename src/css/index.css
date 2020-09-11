@@ -4,6 +4,9 @@
 .bg-49D5D0{ background-color: #49D5D0; }
 .bg-ACEDED{ background-color: #ACEDED; }
 
+.borderRed { border: 2px solid red; }
+.borderGreen { border: 2px solid green; }
+
 /*-----------------------
         BGs
 ------------------------*/

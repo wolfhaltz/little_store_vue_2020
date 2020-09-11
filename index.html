@@ -112,8 +112,10 @@
 
 
             <!-- block -->
-            <input v-model="newsletter.email"/>
+            <!-- <input v-model="newsletter.email" :class="{ borderRed: newsletter.email.length < 2 }" /> -->
+            <input v-model="newsletter.email" :class="[ newsletter.email.length < 2 ? 'borderRed' : 'borderGreen' ]" />
             <button onclick="alert('Inscrito em nossa Newsletter!')" :disabled="newsletter.email.length < 2">Inscever-se</button>
+
         </div>
     </div>
 
