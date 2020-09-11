@@ -109,6 +109,11 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- block -->
+            <input v-model="newsletter.email"/>
+            <button onclick="alert('Inscrito em nossa Newsletter!')" :disabled="newsletter.email.length < 2">Inscever-se</button>
         </div>
     </div>
 
@@ -311,6 +316,7 @@
             el: "#app",
             mixins: [mixin],
             data: {
+                newsletter: { email: '' },
                 users: [],
                 cats: [],
                 loader: {
